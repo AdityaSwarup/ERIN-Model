@@ -123,6 +123,14 @@ EF_1cut() #Calls the function and applies appropriate EF for respective drainage
 EF_2cut() #Calls the function and applies appropriate EF for respective drainage values (For 2 cut + grazing)
 ```
 
+Background emissions (all constant values):
+```{r}
+Background_NO3_emission <- 1.68333333333333
+Background_NH3_emission <- 0
+Background_N2O_emission <- 2.4
+Background_N2_emission <- 4.65882352941176
+```
+
 NO3 Emissions:
 ```{r}
 Urine_loss_NO3 <- function() { #Gets NO3 emissions from urine.
