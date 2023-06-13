@@ -1,13 +1,17 @@
-ERIN N losses
-================
-2023-06-09
+---
+title: "ERIN N losses"
+output: github_document
+date: "2023-06-09"
+---
 
-This document takes in values from a .csv file separated into two
-specific documents, constants, and inputs. Constant values include
-emission factors for specific N losses and inputs are primarily N loads
-(or N inputs) of each contributor to N losses.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
-``` r
+This document takes in values from a .csv file separated into two specific documents,
+constants, and inputs. Constant values include emission factors for specific N losses
+and inputs are primarily N loads (or N inputs) of each contributor to N losses. 
+```{r}
 #Note: Input correct path address for Constants and Inputs
 Data_constants <- read.csv(file = '/Users/adityaswarup/Library/CloudStorage/OneDrive-UniversityofWaterloo/ERIN Constants.csv', header = FALSE, sep = ',', dec = '.')
 
@@ -119,9 +123,16 @@ EF_1cut() #Calls the function and applies appropriate EF for respective drainage
 EF_2cut() #Calls the function and applies appropriate EF for respective drainage values (For 2 cut + grazing)
 ```
 
-NO3 Emissions:
+Background emissions (all constant values):
+```{r}
+Background_NO3_emission <- 1.68333333333333
+Background_NH3_emission <- 0
+Background_N2O_emission <- 2.4
+Background_N2_emission <- 4.65882352941176
+```
 
-``` r
+NO3 Emissions:
+```{r}
 Urine_loss_NO3 <- function() { #Gets NO3 emissions from urine.
   
   Urine_N_load <- N_load_table[N_load_table[,1] == "Urine",] #Gets N load for urine. 
@@ -321,8 +332,7 @@ Soiled_Water_Spreading_loss_NO3() #Calls function calculating N loss from soiled
 ```
 
 NH3 Emissions:
-
-``` r
+```{r}
 Urine_loss_NH3 <- function() { #Gets NH3 emissions from urine.
   
   #Gets N load for urine.
@@ -675,8 +685,7 @@ Slurry_soiled_water_storage_loss_NH3() #Calls function calculating N loss from s
 ```
 
 N2O Emissions:
-
-``` r
+```{r}
 Urine_loss_N2O <- function() {
   
   Urine_N_load <- N_load_table[N_load_table[,1] == "Urine",]
@@ -904,8 +913,7 @@ Leaching_loss_N2O()
 ```
 
 N2 Emissions:
-
-``` r
+```{r}
 Urine_loss_N2 <- function() {
   
   Urine_N_load <- N_load_table[N_load_table[,1] == "Urine",]
